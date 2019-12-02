@@ -8,11 +8,8 @@ namespace eSims.Models
         
         [BsonElement("Value")]
         public int Value { get; set; }
-
         public Student Student { get; set; }
-
         public Professor Professor { get; set; }
-
         [BsonElement("Category")]
         public string Category { get; set; }
     }
