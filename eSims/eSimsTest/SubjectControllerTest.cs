@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace eSims1Test
 {
     [TestClass]
-    public class SubjectsControllerTest
+    public class SubjectControllerTest
     {
         [TestMethod]
         public void Test1()

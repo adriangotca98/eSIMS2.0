@@ -8,12 +8,12 @@ namespace eSims.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubjectsController : ControllerBase
+    public class SubjectController : ControllerBase
     {
 
        private readonly SubjectsService _subjectsService;
 
-       public SubjectsController(SubjectsService subjectsService)
+       public SubjectController(SubjectsService subjectsService)
         {
             _subjectsService = subjectsService;
         }

@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CURSURI\\AN 3\\.NET\\eSIMS2.0\\Proiect\\Proiect\\Proiect.csproj": {}
+    "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\Proiect\\Proiect\\Proiect.csproj": {}
   },
   "projects": {
-    "E:\\CURSURI\\AN 3\\.NET\\eSIMS2.0\\Proiect\\Proiect\\Proiect.csproj": {
+    "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\Proiect\\Proiect\\Proiect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CURSURI\\AN 3\\.NET\\eSIMS2.0\\Proiect\\Proiect\\Proiect.csproj",
+        "projectUniqueName": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\Proiect\\Proiect\\Proiect.csproj",
         "projectName": "Proiect",
-        "projectPath": "E:\\CURSURI\\AN 3\\.NET\\eSIMS2.0\\Proiect\\Proiect\\Proiect.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\CURSURI\\AN 3\\.NET\\eSIMS2.0\\Proiect\\Proiect\\obj\\",
+        "projectPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\Proiect\\Proiect\\Proiect.csproj",
+        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+        "outputPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\Proiect\\Proiect\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
