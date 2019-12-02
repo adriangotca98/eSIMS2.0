@@ -8,8 +8,8 @@ namespace eSims.Controllers
     [ApiController]
     public class ProfessorsController : ControllerBase
     {
-        private readonly ProfessorService _professorService;
-        public ProfessorsController(ProfessorService professorService)
+        private readonly IProfessorService _professorService;
+        public ProfessorsController(IProfessorService professorService)
         {
             _professorService = professorService;
         }
