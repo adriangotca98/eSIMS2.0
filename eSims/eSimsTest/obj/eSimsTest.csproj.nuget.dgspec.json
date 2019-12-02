@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSimsTest\\eSimsTest.csproj": {}
+    "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSimsTest\\eSimsTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSimsTest\\eSimsTest.csproj": {
+    "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSimsTest\\eSimsTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSimsTest\\eSimsTest.csproj",
+        "projectUniqueName": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSimsTest\\eSimsTest.csproj",
         "projectName": "eSimsTest",
-        "projectPath": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSimsTest\\eSimsTest.csproj",
-        "packagesPath": "C:\\Users\\Denisa Irina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSimsTest\\obj\\",
+        "projectPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSimsTest\\eSimsTest.csproj",
+        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+        "outputPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSimsTest\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Denisa Irina\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -27,8 +32,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\eSims.csproj": {
-                "projectPath": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\eSims.csproj"
+              "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\eSims.csproj": {
+                "projectPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\eSims.csproj"
               }
             }
           }
@@ -81,18 +86,23 @@
         }
       }
     },
-    "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\eSims.csproj": {
+    "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\eSims.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\eSims.csproj",
+        "projectUniqueName": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\eSims.csproj",
         "projectName": "eSims",
-        "projectPath": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\eSims.csproj",
-        "packagesPath": "C:\\Users\\Denisa Irina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Denisa Irina\\source\\repos\\eSims\\eSims\\obj\\",
+        "projectPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\eSims.csproj",
+        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+        "outputPath": "D:\\ADRIAN\\ady_info\\anul 3\\.NET\\Proiect\\eSims\\eSims\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Denisa Irina\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
