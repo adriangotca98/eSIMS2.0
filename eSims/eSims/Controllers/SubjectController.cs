@@ -11,20 +11,20 @@ namespace eSims.Controllers
     public class SubjectController : ControllerBase
     {
 
-       private readonly SubjectsService _subjectsService;
+       private readonly ISubjectService _subjectsService;
 
-       public SubjectController(SubjectsService subjectsService)
+       public SubjectController(ISubjectService subjectsService)
         {
             _subjectsService = subjectsService;
         }
 
         [HttpGet]
-        public ActionResult<List<Subjects>> Get() =>
+        public ActionResult<List<Subject>> Get() =>
             _subjectsService.Get();
 
 
         [HttpGet("{id:length(24)}", Name = "GetSubject")]
-        public ActionResult<Subjects> Get(string id)
+        public ActionResult<Subject> Get(string id)
         {
             var subject = _subjectsService.Get(id);
 
@@ -37,7 +37,7 @@ namespace eSims.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Subjects> Create(Subjects subject)
+        public ActionResult<Subject> Create(Subject subject)
         {
             _subjectsService.Create(subject);
 
@@ -45,7 +45,7 @@ namespace eSims.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Subjects subjectIn)
+        public IActionResult Update(string id, Subject subjectIn)
         {
             var subject = _subjectsService.Get(id);
 

@@ -6,10 +6,10 @@ namespace eSims.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProfessorsController : ControllerBase
+    public class ProfessorController : ControllerBase
     {
         private readonly IProfessorService _professorService;
-        public ProfessorsController(IProfessorService professorService)
+        public ProfessorController(IProfessorService professorService)
         {
             _professorService = professorService;
         }

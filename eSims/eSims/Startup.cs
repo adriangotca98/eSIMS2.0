@@ -28,9 +28,9 @@ namespace eSims
             services.AddSingleton<IeSimsDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<eSimsDatabaseSettings>>().Value);
             services.AddScoped<IProfessorService, ProfessorService>();
-			services.AddSingleton<PrezentaService>();
+			services.AddSingleton<AttendanceService>();
 			services.AddSingleton<GradeService>();
-			services.AddSingleton<SubjectsService>();
+			services.AddSingleton<SubjectService>();
             services.AddControllers();
         }
 

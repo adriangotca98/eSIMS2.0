@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace eSims.Models
 {
-    public class Subjects
+    public class Subject
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

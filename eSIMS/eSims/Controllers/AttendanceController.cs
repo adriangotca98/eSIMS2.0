@@ -7,21 +7,21 @@ namespace eSims.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrezentaController : ControllerBase
+    public class AttendanceController : ControllerBase
     {
-        private readonly PrezentaService _prezentService;
+        private readonly IAttendanceService _prezentService;
 
-        public PrezentaController(PrezentaService prezentService)
+        public AttendanceController(IAttendanceService prezentService)
         {
             _prezentService = prezentService;
         }
 
         [HttpGet]
-        public ActionResult<List<Prezenta>> Get() =>
+        public ActionResult<List<Attendance>> Get() =>
             _prezentService.Get();
 
         [HttpGet("{id:length(24)}", Name = "GetPrezenta")]
-        public ActionResult<Prezenta> Get(string id)
+        public ActionResult<Attendance> Get(string id)
         {
             var prezent = _prezentService.Get(id);
 
@@ -34,7 +34,7 @@ namespace eSims.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Prezenta> Create(Prezenta prezent)
+        public ActionResult<Attendance> Create(Attendance prezent)
         {
             _prezentService.Create(prezent);
 
@@ -42,7 +42,7 @@ namespace eSims.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Prezenta prezentIn)
+        public IActionResult Update(string id, Attendance prezentIn)
         {
             var prezent = _prezentService.Get(id);
 

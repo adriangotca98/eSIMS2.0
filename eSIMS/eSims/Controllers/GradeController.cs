@@ -6,10 +6,10 @@ namespace eSims.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GradesController : ControllerBase
+    public class GradeController : ControllerBase
     {
-        private readonly GradeService _gradeService;
-        public GradesController(GradeService gradeService)
+        private readonly IGradeService _gradeService;
+        public GradeController(IGradeService gradeService)
         {
             _gradeService = gradeService;
         }
