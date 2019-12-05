@@ -6,34 +6,27 @@ namespace eSims.Services
 {
 	public class AttendanceService : IAttendanceService
 	{
-		private readonly IMongoCollection<Attendance> _prezente;
-
+		private readonly IMongoCollection<Attendance> _attendace;
 		public AttendanceService(IeSimsDatabaseSettings settings)
 		{
 			var client = new MongoClient(settings.ConnectionString);
 			var database = client.GetDatabase(settings.DatabaseName);
-
-			_prezente = database.GetCollection<Attendance>(settings.PrezentaCollectionName);
+			_attendace = database.GetCollection<Attendance>(settings.StudentsCollectionName);
 		}
 		public List<Attendance> Get() =>
-				   _prezente.Find(prezent => true).ToList();
-
+				   _attendace.Find(prezent => true).ToList();
 		public Attendance Get(string id) =>
-			_prezente.Find(prezent => prezent.Id == id).FirstOrDefault();
-
+			_attendace.Find(prezent => prezent.Id == id).FirstOrDefault();
 		public Attendance Create(Attendance prezent)
 		{
-			_prezente.InsertOne(prezent);
+			_attendace.InsertOne(prezent);
 			return prezent;
 		}
-
 		public void Update(string id, Attendance prezentIn) =>
-			_prezente.ReplaceOne(prezent => prezent.Id == id, prezentIn);
-
+			_attendace.ReplaceOne(prezent => prezent.Id == id, prezentIn);
 		public void Remove(Attendance prezentIn) =>
-			_prezente.DeleteOne(prezent => prezent.Id == prezentIn.Id);
-
+			_attendace.DeleteOne(prezent => prezent.Id == prezentIn.Id);
 		public void Remove(string id) =>
-			_prezente.DeleteOne(prezent => prezent.Id == id);
+			_attendace.DeleteOne(prezent => prezent.Id == id);
 	}
 }
