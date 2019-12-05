@@ -16,6 +16,6 @@ namespace eSims.Models
         public string LastName { get; set; }
 
         [BsonElement("Subjects")]
-        public BsonArray Subjects { get; set; }
+        public BsonArray SubjectsIds { get; set; }
     }
 }
