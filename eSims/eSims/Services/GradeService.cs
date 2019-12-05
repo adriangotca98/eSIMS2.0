@@ -7,7 +7,6 @@ namespace eSims.Services
 	public class GradeService : IGradeService
 	{
 		private readonly IMongoCollection<Grade> _grades;
-
 		public GradeService(IeSimsDatabaseSettings settings)
 		{
 			var client = new MongoClient(settings.ConnectionString);
@@ -15,26 +14,20 @@ namespace eSims.Services
 
 			_grades = database.GetCollection<Grade>(settings.GradesCollectionName);
 		}
-
 		public List<Grade> Get() =>
 			_grades.Find(grade => true).ToList();
-
 		public Grade Get(string idStudent, string idProfessor) =>
-		   _grades.Find<Grade>(grade => grade.Professor.Id == idProfessor && grade.Student.Id == idStudent).FirstOrDefault();
-
+		   _grades.Find<Grade>(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent).FirstOrDefault();
 		public Grade Create(Grade grade)
 		{
 			_grades.InsertOne(grade);
 			return grade;
 		}
-
 		public void Update(string idStudent, string idProfessor, Grade newGrade) =>
-			_grades.ReplaceOne(grade => grade.Professor.Id == idProfessor && grade.Student.Id == idStudent, newGrade);
-
+			_grades.ReplaceOne(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent, newGrade);
 		public void Remove(Grade delGrade) =>
-			_grades.DeleteOne(grade => grade.Professor.Id == delGrade.Professor.Id && grade.Student.Id == delGrade.Student.Id);
-
+			_grades.DeleteOne(grade => grade.ProfessorID == delGrade.ProfessorID && grade.StudentID == delGrade.StudentID);
 		public void Remove(string idStudent, string idProfessor) =>
-			_grades.DeleteOne(grade => grade.Professor.Id == idProfessor && grade.Student.Id == idStudent);
+			_grades.DeleteOne(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent);
 	}
 }

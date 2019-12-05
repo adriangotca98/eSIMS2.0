@@ -3,19 +3,19 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace eSims.Models
 {
-    public class Professor
-    {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+	public class Professor
+	{
+		[BsonId]
+		[BsonRepresentation(BsonType.ObjectId)]
+		public string Id { get; set; }
 
-        [BsonElement("FirstName")]
-        public string FirstName { get; set; }
+		[BsonElement("First Name")]
+		public string FirstName { get; set; }
 
-        [BsonElement("LastName")]
-        public string LastName { get; set; }
+		[BsonElement("Last Name")]
+		public string LastName { get; set; }
 
-        [BsonElement("Subjects")]
-        public BsonArray SubjectsIds { get; set; }
-    }
+		[BsonElement("Subject IDs")]
+		public BsonArray SubjectsIds { get; set; }
+	}
 }
