@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+
 namespace eSims
 
 {
@@ -33,7 +35,8 @@ namespace eSims
 			services.AddScoped<IGradeService, GradeService>();
 			services.AddScoped<ISubjectService, SubjectService>();
 			services.AddScoped<IStudentService, StudentService>();
-			services.AddControllers();
+			services.AddControllers()
+				.AddNewtonsoftJson(options => options.UseMemberCasing());
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
