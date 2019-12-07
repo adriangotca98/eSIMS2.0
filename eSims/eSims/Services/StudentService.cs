@@ -27,6 +27,10 @@ namespace eSIMS.Services
 			_students.Find(student => student.RegistrationNumber == registrationNumber).FirstOrDefault();
 		public Student Create(Student student)
 		{
+			if (Get(student.RegistrationNumber) != null)
+			{
+				return null;
+			}
 			foreach (string _subject in student.Subjects.ToList())
 			{
 				if (_subjects.Find(subject => subject.Name == _subject).FirstOrDefault() == null)
@@ -47,7 +51,7 @@ namespace eSIMS.Services
 		public void Update(string registrationNumber, Student student) =>
 			_students.ReplaceOne(student => student.RegistrationNumber == registrationNumber, student);
 		public void Remove(Student student) =>
-			_students.DeleteOne(individual => individual.RegistrationNumber == student.RegistrationNumber);
+			_students.DeleteOne(_student => _student.RegistrationNumber == student.RegistrationNumber);
 		public void Remove(string registrationNumber) =>
 			_students.DeleteOne(student => student.RegistrationNumber == registrationNumber);
 	}

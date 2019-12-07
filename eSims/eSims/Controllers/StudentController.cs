@@ -17,10 +17,10 @@ namespace eSims.Controllers
 		[HttpGet]
 		public ActionResult<List<Student>> Get() =>
 			_studentService.Get();
-		[HttpGet("{id:length(24)}", Name = "GetStudent")]
-		public ActionResult<Student> Get(string id)
+		[HttpGet("{regNumber}", Name = "GetStudent")]
+		public ActionResult<Student> Get(string registrationNumber)
 		{
-			var student = _studentService.Get(id);
+			var student = _studentService.Get(registrationNumber);
 			if (student == null)
 			{
 				return NotFound();
@@ -36,18 +36,18 @@ namespace eSims.Controllers
 			}
 			return CreatedAtRoute("GetStudent", new { id = student.RegistrationNumber.ToString() }, student);
 		}
-		[HttpPut("{id:length(24)}")]
-		public IActionResult Update(string id, Student studentIn)
+		[HttpPut("{regNumber}")]
+		public IActionResult Update(string registrationNumber, Student studentIn)
 		{
-			var student = _studentService.Get(id);
+			var student = _studentService.Get(registrationNumber);
 			if (student == null)
 			{
 				return NotFound();
 			}
-			_studentService.Update(id, studentIn);
+			_studentService.Update(registrationNumber, studentIn);
 			return NoContent();
 		}
-		[HttpDelete("{id:length(24)}")]
+		[HttpDelete("{regNumber}")]
 		public IActionResult Delete(string id)
 		{
 			var student = _studentService.Get(id);
