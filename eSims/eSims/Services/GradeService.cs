@@ -28,7 +28,7 @@ namespace eSims.Services
 			return grade;
 		}
 		public void Update(string idStudent, string idProfessor, Grade newGrade) =>
-			_grades.ReplaceOne(grad => grad.ProfessorID == idProfessor && grade.StudentID == idStudent, newGrade);
+			_grades.ReplaceOne(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent, newGrade);
 		public void Remove(Grade delGrade) =>
 			_grades.DeleteOne(grade => grade.ProfessorID == delGrade.ProfessorID && grade.StudentID == delGrade.StudentID);
 		public void Remove(string idStudent, string idProfessor) =>
