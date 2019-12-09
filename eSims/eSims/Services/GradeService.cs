@@ -20,6 +20,10 @@ namespace eSims.Services
 		   _grades.Find<Grade>(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent).FirstOrDefault();
 		public Grade Create(Grade grade)
 		{
+			if (Get(grade.StudentID, grade.ProfessorID) != null)
+			{
+				return null;
+			}
 			_grades.InsertOne(grade);
 			return grade;
 		}
