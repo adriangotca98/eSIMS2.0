@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace eSims.Models
 {
@@ -16,6 +17,6 @@ namespace eSims.Models
 		public string LastName { get; set; }
 
 		[BsonElement("Subject IDs")]
-		public BsonArray SubjectsIds { get; set; }
+		public List<string> SubjectsIds { get; set; }
 	}
 }
