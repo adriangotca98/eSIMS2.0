@@ -1,11 +1,10 @@
 ﻿using eSims.Models;
 using eSims.Services;
-using eSIMS.Models;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eSIMS.Services
+namespace eSims.Services
 {
 	public class StudentService : IStudentService
 	{

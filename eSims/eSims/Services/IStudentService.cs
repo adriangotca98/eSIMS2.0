@@ -1,7 +1,7 @@
-﻿using eSIMS.Models;
+﻿using eSims.Models;
 using System.Collections.Generic;
 
-namespace eSIMS.Services
+namespace eSims.Services
 {
 	public interface IStudentService
 	{

@@ -1,6 +1,5 @@
 using eSims.Models;
 using eSims.Services;
-using eSIMS.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

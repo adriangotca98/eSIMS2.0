@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace eSIMS.Models
+namespace eSims.Models
 {
 	public class Student
 	{
