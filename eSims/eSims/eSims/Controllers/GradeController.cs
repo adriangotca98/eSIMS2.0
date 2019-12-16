@@ -16,10 +16,11 @@ namespace eSims.Controllers
 		[HttpGet]
 		public ActionResult<List<Grade>> Get() =>
 			_gradeService.Get();
-		[HttpGet("{idS,idP}",Name = "GetGrade")]
-		public ActionResult<Grade> Get(string idStudent, string idProfessor)
+
+		[HttpGet("{id}",Name = "GetGrade")]
+		public ActionResult<Grade> Get(string id)
 		{
-			var grade = _gradeService.Get(idStudent, idProfessor);
+			var grade = _gradeService.Get(id);
 			if (grade == null)
 			{
 				return NotFound();
@@ -30,28 +31,28 @@ namespace eSims.Controllers
 		public ActionResult<Grade> Create(Grade grade)
 		{
 			_gradeService.Create(grade);
-			return CreatedAtRoute("GetGrade", new { id = grade.StudentID.ToString() + grade.ProfessorID }, grade);
+			return CreatedAtRoute("GetGrade", new { id = grade.Id.ToString() }, grade);
 		}
 		[HttpPut]
-		public IActionResult Update(string idStudent, string idProfessor, Grade newGrade)
+		public IActionResult Update(string id, Grade newGrade)
 		{
-			var grade = _gradeService.Get(idStudent, idProfessor);
+			var grade = _gradeService.Get(id);
 			if (grade == null)
 			{
 				return NotFound();
 			}
-			_gradeService.Update(idStudent, idProfessor, newGrade);
+			_gradeService.Update(id, newGrade);
 			return NoContent();
 		}
 		[HttpDelete]
-		public IActionResult Delete(string idStudent, string idProfessor)
+		public IActionResult Delete(string id)
 		{
-			var grade = _gradeService.Get(idStudent, idProfessor);
+			var grade = _gradeService.Get(id);
 			if (grade == null)
 			{
 				return NotFound();
 			}
-			_gradeService.Remove(grade.StudentID, grade.ProfessorID);
+			_gradeService.Remove(grade.Id);
 			return NoContent();
 		}
 	}
