@@ -16,22 +16,23 @@ namespace eSims.Services
 		}
 		public List<Grade> Get() =>
 			_grades.Find(grade => true).ToList();
-		public Grade Get(string idStudent, string idProfessor) =>
-		   _grades.Find<Grade>(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent).FirstOrDefault();
+		public Grade Get(string id) =>
+		   _grades.Find<Grade>(grade => grade.Id == id).FirstOrDefault();
 		public Grade Create(Grade grade)
 		{
-			if (Get(grade.StudentID, grade.ProfessorID) != null)
+			if (_grades.Find<Grade>(g => g.Id == grade.Id).FirstOrDefault() != null)
 			{
 				return null;
 			}
+
 			_grades.InsertOne(grade);
 			return grade;
 		}
-		public void Update(string idStudent, string idProfessor, Grade newGrade) =>
-			_grades.ReplaceOne(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent, newGrade);
+		public void Update(string id, Grade newGrade) =>
+			_grades.ReplaceOne(grade => grade.Id == id, newGrade);
 		public void Remove(Grade delGrade) =>
-			_grades.DeleteOne(grade => grade.ProfessorID == delGrade.ProfessorID && grade.StudentID == delGrade.StudentID);
-		public void Remove(string idStudent, string idProfessor) =>
-			_grades.DeleteOne(grade => grade.ProfessorID == idProfessor && grade.StudentID == idStudent);
+			_grades.DeleteOne(grade => grade.Id == delGrade.Id);
+		public void Remove(string id) =>
+			_grades.DeleteOne(grade => grade.Id == id);
 	}
 }

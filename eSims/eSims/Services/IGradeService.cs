@@ -7,9 +7,9 @@ namespace eSims.Services
 	{
 		Grade Create(Grade grade);
 		List<Grade> Get();
-		Grade Get(string idStudent, string idProfessor);
-		void Remove(Grade delGrade);
-		void Remove(string idStudent, string idProfessor);
-		void Update(string idStudent, string idProfessor, Grade newGrade);
+		Grade Get(string id);
+		void Remove(Grade grade);
+		void Remove(string id);
+		void Update(string id, Grade newGrade);
 	}
 }
