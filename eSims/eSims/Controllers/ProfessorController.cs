@@ -30,7 +30,11 @@ namespace eSims.Controllers
 		[HttpPost]
 		public ActionResult<Professor> Create(Professor professor)
 		{
-			_professorService.Create(professor);
+            if (_professorService.Create(professor) == null)
+            {
+                return BadRequest();
+            }
+        
 			return CreatedAtRoute("GetProfessor", new { id = professor.Id.ToString() }, professor);
 		}
 		[HttpPut("{id:length(24)}")]
