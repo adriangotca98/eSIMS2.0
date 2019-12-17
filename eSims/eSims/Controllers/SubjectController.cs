@@ -30,9 +30,13 @@ namespace eSims.Controllers
 		[HttpPost]
 		public ActionResult<Subject> Create(Subject subject)
 		{
-			_subjectsService.Create(subject);
+			
+            if (_subjectsService.Create(subject) == null)
+            {
+                return BadRequest();
+            }
 
-			return CreatedAtRoute("GetSubject", new { id = subject.Id.ToString() }, subject);
+            return CreatedAtRoute("GetSubject", new { id = subject.Id.ToString() }, subject);
 		}
 		[HttpPut("{id:length(24)}")]
 		public IActionResult Update(string id, Subject subjectIn)
