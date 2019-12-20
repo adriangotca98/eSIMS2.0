@@ -45,8 +45,10 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			_professorService.Update(id, professorIn);
-			return NoContent();
+            if (_professorService.Update(id, professorIn))
+                return NoContent();
+            return BadRequest();
+
 		}
 		[HttpDelete("{id:length(24)}")]
 		public IActionResult Delete(string id)
