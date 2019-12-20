@@ -30,7 +30,11 @@ namespace eSims.Controllers
 		[HttpPost]
 		public ActionResult<Professor> Create(Professor professor)
 		{
-			_professorService.Create(professor);
+            if (_professorService.Create(professor) == null)
+            {
+                return BadRequest();
+            }
+        
 			return CreatedAtRoute("GetProfessor", new { id = professor.Id.ToString() }, professor);
 		}
 		[HttpPut("{id:length(24)}")]
@@ -41,8 +45,10 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			_professorService.Update(id, professorIn);
-			return NoContent();
+            if (_professorService.Update(id, professorIn))
+                return NoContent();
+            return BadRequest();
+
 		}
 		[HttpDelete("{id:length(24)}")]
 		public IActionResult Delete(string id)

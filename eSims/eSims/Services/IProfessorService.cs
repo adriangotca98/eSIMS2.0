@@ -8,8 +8,8 @@ namespace eSims.Services
 		Professor Create(Professor professor);
 		List<Professor> Get();
 		Professor Get(string id);
-		void Remove(Professor professorIn);
+		void Remove(Professor professor);
 		void Remove(string id);
-		void Update(string id, Professor professorIn);
+		bool Update(string id, Professor professor);
 	}
 }

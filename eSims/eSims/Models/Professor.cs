@@ -6,17 +6,14 @@ namespace eSims.Models
 {
 	public class Professor
 	{
-		[BsonId]
-		[BsonRepresentation(BsonType.ObjectId)]
-		public string Id { get; set; }
-
-		[BsonElement("First Name")]
-		public string FirstName { get; set; }
-
-		[BsonElement("Last Name")]
-		public string LastName { get; set; }
-
-		[BsonElement("Subject IDs")]
-		public List<string> SubjectsIds { get; set; }
-	}
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id;
+        [BsonElement("First Name")]
+        public string FirstName;
+        [BsonElement("Last Name")]
+        public string LastName;
+        [BsonElement("Subjects")]
+        public List<string> Subjects;
+    }
 }
