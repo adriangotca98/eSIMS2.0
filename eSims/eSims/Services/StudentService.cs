@@ -1,5 +1,4 @@
 ﻿using eSims.Models;
-using eSims.Services;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,35 +22,48 @@ namespace eSims.Services
 		public List<Student> Get() =>
 				   _students.Find(prezent => true).ToList();
 		public Student Get(string registrationNumber) =>
-			_students.Find(student => student.RegistrationNumber == registrationNumber).FirstOrDefault();
+			FindStudentByRegistrationNumber(registrationNumber);
 		public Student Create(Student student)
 		{
-			if (Get(student.RegistrationNumber) != null)
+			if (FindStudentByRegistrationNumber(student.RegistrationNumber) != null || VerifySubjectsAndGrades(student) == false)
 			{
 				return null;
-			}
-			foreach (string _subject in student.Subjects.ToList())
-			{
-				if (_subjects.Find(subject => subject.Name == _subject).FirstOrDefault() == null)
-				{
-					return null;
-				}
-			}
-			foreach(string gradeID in student.GradeIDs.ToList())
-			{
-				if (_grades.Find(grade => grade.Id == gradeID).FirstOrDefault() == null)
-				{
-					return null;
-				}
 			}
 			_students.InsertOne(student);
 			return student;
 		}
-		public void Update(string registrationNumber, Student student) =>
+		public bool Update(string registrationNumber, Student student)
+		{
+			if (VerifySubjectsAndGrades(student) == false)
+			{
+				return false;
+			}
 			_students.ReplaceOne(student => student.RegistrationNumber == registrationNumber, student);
+			return true;
+		}
 		public void Remove(Student student) =>
 			_students.DeleteOne(individual => individual.RegistrationNumber == student.RegistrationNumber);
 		public void Remove(string registrationNumber) =>
 			_students.DeleteOne(student => student.RegistrationNumber == registrationNumber);
+		private Student FindStudentByRegistrationNumber(string registrationNumber)=>
+			_students.Find(student => student.RegistrationNumber == registrationNumber).FirstOrDefault();
+		private bool VerifySubjectsAndGrades(Student student)
+		{
+			foreach (string _subject in student.Subjects.ToList())
+			{
+				if (_subjects.Find(subject => subject.Name == _subject).FirstOrDefault() == null)
+				{
+					return false;
+				}
+			}
+			foreach (string gradeID in student.GradeIDs.ToList())
+			{
+				if (_grades.Find(grade => grade.Id == gradeID).FirstOrDefault() == null)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
 	}
 }

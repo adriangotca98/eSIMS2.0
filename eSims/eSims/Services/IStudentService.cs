@@ -10,6 +10,6 @@ namespace eSims.Services
 		Student Get(string registrationNumber);
 		void Remove(string registrationNumber);
 		void Remove(Student student);
-		void Update(string registrationNumber, Student student);
+		bool Update(string registrationNumber, Student student);
 	}
 }

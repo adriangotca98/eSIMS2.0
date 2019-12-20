@@ -34,7 +34,7 @@ namespace eSims.Controllers
 			{
 				return BadRequest();
 			}
-			return CreatedAtRoute("GetStudent", new { id = student.RegistrationNumber.ToString() }, student);
+			return CreatedAtRoute("GetStudent", new { registrationNumber = student.RegistrationNumber.ToString() }, student);
 		}
 		[HttpPut("{registrationNumber}")]
 		public IActionResult Update(string registrationNumber, Student studentIn)
@@ -44,8 +44,9 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			_studentService.Update(registrationNumber, studentIn);
-			return NoContent();
+			if (_studentService.Update(registrationNumber, studentIn))
+				return NoContent();
+			return BadRequest();
 		}
 		[HttpDelete("{registrationNumber}")]
 		public IActionResult Delete(string registrationNumber)
