@@ -41,8 +41,9 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			_gradeService.Update(id, newGrade);
-			return NoContent();
+            if (_gradeService.Update(id, newGrade))
+                return NoContent();
+			return BadRequest();
 		}
 		[HttpDelete]
 		public IActionResult Delete(string id)
