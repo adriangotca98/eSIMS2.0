@@ -10,6 +10,6 @@ namespace eSims.Services
 		Grade Get(string id);
 		void Remove(Grade grade);
 		void Remove(string id);
-		void Update(string id, Grade newGrade);
+		bool Update(string id, Grade newGrade);
 	}
 }
