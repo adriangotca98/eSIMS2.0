@@ -9,6 +9,8 @@ namespace eSims.Models
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string Id { get; set; }
+		[BsonElement("Code")]
+		public string Code { get; set; }
 		[BsonElement("Group")]
 		public string Group { get; set; }
 		[BsonElement("Professor")]
