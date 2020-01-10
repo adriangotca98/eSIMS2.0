@@ -6,27 +6,61 @@ namespace eSims.Services
 {
 	public class AttendanceService : IAttendanceService
 	{
-		private readonly IMongoCollection<Attendance> _attendace;
+		private readonly IMongoCollection<Attendance> _attendance;
+		private readonly IMongoCollection<Professor> _professors;
+		private readonly IMongoCollection<Student> _students;
 		public AttendanceService(IeSimsDatabaseSettings settings)
 		{
 			var client = new MongoClient(settings.ConnectionString);
 			var database = client.GetDatabase(settings.DatabaseName);
-			_attendace = database.GetCollection<Attendance>(settings.StudentsCollectionName);
+			_attendance = database.GetCollection<Attendance>(settings.AttendanceCollectionName);
+			_professors = database.GetCollection<Professor>(settings.ProfessorsCollectionName);
+			_students = database.GetCollection<Student>(settings.StudentsCollectionName);
 		}
 		public List<Attendance> Get() =>
-				   _attendace.Find(prezent => true).ToList();
+				   _attendance.Find(prezent => true).ToList();
 		public Attendance Get(string id) =>
-			_attendace.Find(prezent => prezent.Id == id).FirstOrDefault();
+			FindAttendanceById(id);
 		public Attendance Create(Attendance prezent)
 		{
-			_attendace.InsertOne(prezent);
+			if (FindAttendanceById(prezent.Id) != null)
+			{
+				return null;
+			}
+			_attendance.InsertOne(prezent);
 			return prezent;
 		}
-		public void Update(Attendance prezentIn) =>
-			_attendace.ReplaceOne(prezent => prezent.Id == prezentIn.Id, prezentIn);
+		public bool Update(Attendance prezentIn)
+		{
+			if (VerifyProfAndStudentIDsExistence(prezentIn)==false|| FindAttendanceById(prezentIn.Id) == null)
+			{
+				return false;
+			}
+			_attendance.ReplaceOne(prezent => prezent.Id == prezentIn.Id, prezentIn);
+			return true;
+		}
 		public void Remove(Attendance prezentIn) =>
-			_attendace.DeleteOne(prezent => prezent.Id == prezentIn.Id);
+			_attendance.DeleteOne(prezent => prezent.Id == prezentIn.Id);
 		public void Remove(string id) =>
-			_attendace.DeleteOne(prezent => prezent.Id == id);
+			_attendance.DeleteOne(prezent => prezent.Id == id);
+
+		private Attendance FindAttendanceById(string id) =>
+			_attendance.Find(prezent => prezent.Id == id).FirstOrDefault();
+
+		private bool VerifyProfAndStudentIDsExistence(Attendance prezentIn)
+		{
+			if (_professors.Find(prof => prof.Id == prezentIn.Prof).FirstOrDefault() == null)
+			{
+				return false;
+			}
+			foreach (var studentId in prezentIn.StudentIds)
+			{
+				if (_students.Find(student => student.Id == studentId).FirstOrDefault() == null)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
 	}
 }

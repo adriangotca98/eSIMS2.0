@@ -30,7 +30,10 @@ namespace eSims.Controllers
 		[HttpPost]
 		public ActionResult<Attendance> Create(Attendance prezent)
 		{
-			_prezentService.Create(prezent);
+			if (_prezentService.Create(prezent) == null)
+			{
+				return BadRequest();
+			}
 			return CreatedAtRoute("GetPrezenta", new { id = prezent.Id.ToString() }, prezent);
 		}
 		[HttpPut]
@@ -41,8 +44,11 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			_prezentService.Update(prezentIn);
-			return NoContent();
+			if (_prezentService.Update(prezentIn))
+			{
+				return NoContent();
+			}
+			return BadRequest();
 		}
 		[HttpDelete("{id:length(24)}")]
 		public IActionResult Delete(string id)

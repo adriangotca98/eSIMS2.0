@@ -10,6 +10,6 @@ namespace eSims.Services
 		Attendance Get(string id);
 		void Remove(Attendance prezentIn);
 		void Remove(string id);
-		void Update(Attendance prezentIn);
+		bool Update(Attendance prezentIn);
 	}
 }
