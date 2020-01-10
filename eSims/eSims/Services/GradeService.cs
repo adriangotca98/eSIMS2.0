@@ -34,14 +34,14 @@ namespace eSims.Services
 			_grades.InsertOne(grade);
 			return grade;
 		}
-        public bool Update(string id, Grade newGrade)
+        public bool Update(Grade newGrade)
         {
-            if(FindGradeById(id) == null || VerifyStudentAndProfessorAndSubjectExistence(newGrade) == false)
+            if(FindGradeById(newGrade.Id) == null || VerifyStudentAndProfessorAndSubjectExistence(newGrade) == false)
             {
                 return false;
             }
             
-            _grades.ReplaceOne(grade => grade.Id == id, newGrade);
+            _grades.ReplaceOne(grade => grade.Id == newGrade.Id, newGrade);
             return true;
         }
 		public void Remove(Grade delGrade) =>

@@ -32,13 +32,13 @@ namespace eSims.Services
 			_students.InsertOne(student);
 			return student;
 		}
-		public bool Update(string registrationNumber, Student student)
+		public bool Update(Student student)
 		{
 			if (VerifySubjectsAndGrades(student) == false)
 			{
 				return false;
 			}
-			_students.ReplaceOne(student => student.RegistrationNumber == registrationNumber, student);
+			_students.ReplaceOne(Student => Student.RegistrationNumber == student.RegistrationNumber, student);
 			return true;
 		}
 		public void Remove(Student student) =>

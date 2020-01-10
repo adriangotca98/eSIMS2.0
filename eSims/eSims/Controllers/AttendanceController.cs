@@ -33,15 +33,15 @@ namespace eSims.Controllers
 			_prezentService.Create(prezent);
 			return CreatedAtRoute("GetPrezenta", new { id = prezent.Id.ToString() }, prezent);
 		}
-		[HttpPut("{id:length(24)}")]
-		public IActionResult Update(string id, Attendance prezentIn)
+		[HttpPut]
+		public IActionResult Update(Attendance prezentIn)
 		{
-			var prezent = _prezentService.Get(id);
+			var prezent = _prezentService.Get(prezentIn.Id);
 			if (prezent == null)
 			{
 				return NotFound();
 			}
-			_prezentService.Update(id, prezentIn);
+			_prezentService.Update(prezentIn);
 			return NoContent();
 		}
 		[HttpDelete("{id:length(24)}")]

@@ -22,8 +22,8 @@ namespace eSims.Services
 			_attendace.InsertOne(prezent);
 			return prezent;
 		}
-		public void Update(string id, Attendance prezentIn) =>
-			_attendace.ReplaceOne(prezent => prezent.Id == id, prezentIn);
+		public void Update(Attendance prezentIn) =>
+			_attendace.ReplaceOne(prezent => prezent.Id == prezentIn.Id, prezentIn);
 		public void Remove(Attendance prezentIn) =>
 			_attendace.DeleteOne(prezent => prezent.Id == prezentIn.Id);
 		public void Remove(string id) =>

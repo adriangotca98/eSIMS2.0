@@ -34,14 +34,14 @@ namespace eSims.Controllers
 			return CreatedAtRoute("GetGrade", new { id = grade.Id.ToString() }, grade);
 		}
 		[HttpPut]
-		public IActionResult Update(string id, Grade newGrade)
+		public IActionResult Update(Grade newGrade)
 		{
-			var grade = _gradeService.Get(id);
+			var grade = _gradeService.Get(newGrade.Id);
 			if (grade == null)
 			{
 				return NotFound();
 			}
-            if (_gradeService.Update(id, newGrade))
+            if (_gradeService.Update(newGrade))
                 return NoContent();
 			return BadRequest();
 		}

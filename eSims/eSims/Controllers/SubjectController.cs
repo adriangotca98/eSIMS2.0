@@ -41,7 +41,7 @@ namespace eSims.Controllers
             return CreatedAtRoute("GetSubject", new { id = subject.Id.ToString() }, subject);
 		}
 
-		[HttpPut("{id:length(24)}")]
+		[HttpPut]
 		public IActionResult Update(string id, Subject subjectIn)
 		{
 			var subject = _subjectsService.Get(id);
@@ -49,7 +49,7 @@ namespace eSims.Controllers
 			{
 				return NotFound();
 			}
-			if(_subjectsService.Update(id, subjectIn))
+			if(_subjectsService.Update(subjectIn))
 			    return NoContent();
             return BadRequest();
 		}

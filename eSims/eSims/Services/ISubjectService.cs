@@ -10,6 +10,6 @@ namespace eSims.Services
 		Subject Get(string id);
 		void Remove(string id);
 		void Remove(Subject subjectIn);
-		bool Update(string id, Subject subjectIn);
+		bool Update(Subject subjectIn);
 	}
 }
