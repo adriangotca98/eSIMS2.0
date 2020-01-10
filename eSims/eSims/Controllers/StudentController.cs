@@ -36,15 +36,15 @@ namespace eSims.Controllers
 			}
 			return CreatedAtRoute("GetStudent", new { registrationNumber = student.RegistrationNumber.ToString() }, student);
 		}
-		[HttpPut("{registrationNumber}")]
-		public IActionResult Update(string registrationNumber, Student studentIn)
+		[HttpPut()]
+		public IActionResult Update(Student studentIn)
 		{
-			var student = _studentService.Get(registrationNumber);
+			var student = _studentService.Get(studentIn.RegistrationNumber);
 			if (student == null)
 			{
 				return NotFound();
 			}
-			if (_studentService.Update(registrationNumber, studentIn))
+			if (_studentService.Update(studentIn))
 				return NoContent();
 			return BadRequest();
 		}

@@ -32,13 +32,13 @@ namespace eSims.Services
             _professors.InsertOne(professor);
 			return professor;
 		}
-        public bool Update(string id, Professor professor)
+        public bool Update(Professor professor)
         {
             if (VerifySubjects(professor) == false)
             {
                 return false;
             }
-            _professors.ReplaceOne(professor => professor.Id == id, professor);
+            _professors.ReplaceOne(Professor => Professor.Id == professor.Id, professor);
             return true;
         }
         public void Remove(Professor professorIn) =>

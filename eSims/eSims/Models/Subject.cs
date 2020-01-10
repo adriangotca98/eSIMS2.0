@@ -15,7 +15,7 @@ namespace eSims.Models
 		public string Year { get; set; }
 		[BsonElement("Term")]
 		public string Term { get; set; }
-		[BsonElement("Professor IDs")]
+		[BsonElement("ProfessorIDs")]
 		public List<string> ProfessorIds { get; set; }
     }
 }

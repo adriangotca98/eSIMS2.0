@@ -30,19 +30,25 @@ namespace eSims.Controllers
 		[HttpPost]
 		public ActionResult<Attendance> Create(Attendance prezent)
 		{
-			_prezentService.Create(prezent);
+			if (_prezentService.Create(prezent) == null)
+			{
+				return BadRequest();
+			}
 			return CreatedAtRoute("GetPrezenta", new { id = prezent.Id.ToString() }, prezent);
 		}
-		[HttpPut("{id:length(24)}")]
-		public IActionResult Update(string id, Attendance prezentIn)
+		[HttpPut]
+		public IActionResult Update(Attendance prezentIn)
 		{
-			var prezent = _prezentService.Get(id);
+			var prezent = _prezentService.Get(prezentIn.Id);
 			if (prezent == null)
 			{
 				return NotFound();
 			}
-			_prezentService.Update(id, prezentIn);
-			return NoContent();
+			if (_prezentService.Update(prezentIn))
+			{
+				return NoContent();
+			}
+			return BadRequest();
 		}
 		[HttpDelete("{id:length(24)}")]
 		public IActionResult Delete(string id)
