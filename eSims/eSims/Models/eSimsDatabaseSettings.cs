@@ -7,6 +7,7 @@
 		public string GradesCollectionName { get; set; }
 		public string SubjectsCollectionName { get; set; }
 		public string AttendanceCollectionName { get; set; }
+        public string UsersCollectionName { get; set; }
 		public string ConnectionString { get; set; }
 		public string DatabaseName { get; set; }
 	}
@@ -18,6 +19,7 @@
 		public string GradesCollectionName { get; set; }
 		public string SubjectsCollectionName { get; set; }
 		public string AttendanceCollectionName { get; set; }
+        public string UsersCollectionName { get; set; }
 		string ConnectionString { get; set; }
 		string DatabaseName { get; set; }
 	}
