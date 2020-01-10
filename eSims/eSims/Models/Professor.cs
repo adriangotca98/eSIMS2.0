@@ -9,9 +9,9 @@ namespace eSims.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id;
-        [BsonElement("First Name")]
+        [BsonElement("FirstName")]
         public string FirstName;
-        [BsonElement("Last Name")]
+        [BsonElement("LastName")]
         public string LastName;
         [BsonElement("Subjects")]
         public List<string> Subjects;

@@ -15,9 +15,9 @@ namespace eSims.Models
 		public string Group { get; set; }
 		[BsonElement("Professor")]
 		public string Prof { get; set; }
-		[BsonElement("Number of students")]
+		[BsonElement("NumberOfStudents")]
 		public int NrStud { get; set; }
-		[BsonElement("Student IDs")]
+		[BsonElement("StudentIDs")]
 		public List<string> StudentIds { get; set; }
 	}
 }
