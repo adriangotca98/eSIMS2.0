@@ -20,7 +20,7 @@ namespace eSims.Controllers
         public ActionResult<List<User>> Get() =>
             _userService.Get();
 
-        [HttpGet("{id}", Name = "GetUser")]
+        [HttpGet("{id:length(24)}", Name = "GetUser")]
         public ActionResult<User> Get(string id)
         {
             var user = _userService.Get(id);
