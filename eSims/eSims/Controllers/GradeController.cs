@@ -17,7 +17,7 @@ namespace eSims.Controllers
 		public ActionResult<List<Grade>> Get() =>
 			_gradeService.Get();
 
-		[HttpGet("{id}",Name = "GetGrade")]
+		[HttpGet("{id:length(24)}", Name = "GetGrade")]
 		public ActionResult<Grade> Get(string id)
 		{
 			var grade = _gradeService.Get(id);

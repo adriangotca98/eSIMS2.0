@@ -33,6 +33,7 @@ namespace eSims
             services.AddScoped<IGradeService, GradeService>();
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());
         }
