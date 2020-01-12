@@ -20,22 +20,20 @@ namespace eSims.Services
         public List<User> Get() =>
             _users.Find(user => true).ToList();
 
-        public User Get(string id) =>
-            FindUserById(id);
+        public User Get(string username) =>
+            FindByUsername(username);
 
         public User Create(User user)
         {
-            if (FindUserById(user.Id) != null)
+            if (FindByUsername(user.Username) != null)
             {
                 return null;
             }
             _users.InsertOne(user);
             return user;
         }
-        public User FindUserById(string id) =>
-            _users.Find(user => user.Id == id).FirstOrDefault();
 
-
-
+        public User FindByUsername(string username) =>
+                _users.Find(user => user.Username == username).FirstOrDefault();    
     }
 }
