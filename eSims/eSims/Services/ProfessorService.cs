@@ -30,7 +30,8 @@ namespace eSims.Services
                 return null;
             }
             _professors.InsertOne(professor);
-			return professor;
+            insertProfIdInSubjects(professor.Subjects,professor.Id);
+            return professor;
 		}
         public bool Update(Professor professor)
         {
@@ -39,6 +40,7 @@ namespace eSims.Services
                 return false;
             }
             _professors.ReplaceOne(Professor => Professor.Id == professor.Id, professor);
+            insertProfIdInSubjects(professor.Subjects, professor.Id);
             return true;
         }
         public void Remove(Professor professorIn) =>
@@ -58,5 +60,14 @@ namespace eSims.Services
             }
             return true;
         }
-	}
+        private void insertProfIdInSubjects(List <string> subjects, string id)
+        {
+            foreach (string s in subjects)
+            {
+                Subject subject = _subjects.Find(subject => subject.Name == s).FirstOrDefault();
+                subject.ProfessorIds.Add(id);
+                _subjects.ReplaceOne(Subject => Subject.Name == s, subject);
+            }
+        }
+}
 }

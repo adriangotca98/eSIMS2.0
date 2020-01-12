@@ -42,9 +42,9 @@ namespace eSims.Controllers
 		}
 
 		[HttpPut]
-		public IActionResult Update(string id, Subject subjectIn)
+		public IActionResult Update(Subject subjectIn)
 		{
-			var subject = _subjectsService.Get(id);
+			var subject = _subjectsService.Get(subjectIn.Id);
 			if (subject == null)
 			{
 				return NotFound();
