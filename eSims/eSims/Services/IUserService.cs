@@ -8,6 +8,7 @@ namespace eSims.Services
         User Create(User user);
         List<User> Get();
         User Get(string id);
+        User GetByUsername(string username);
 
     }
 }

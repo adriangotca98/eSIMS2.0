@@ -23,6 +23,9 @@ namespace eSims.Services
         public User Get(string id) =>
             FindUserById(id);
 
+        public User GetByUsername(string username) =>
+            FindByUsername(username);
+
         public User Create(User user)
         {
             if (FindUserById(user.Id) != null)
@@ -34,6 +37,9 @@ namespace eSims.Services
         }
         public User FindUserById(string id) =>
             _users.Find(user => user.Id == id).FirstOrDefault();
+
+        public User FindByUsername(string username) =>
+            _users.Find(user => user.Username == username).FirstOrDefault();
 
 
 

@@ -32,6 +32,18 @@ namespace eSims.Controllers
             return user;
         }
 
+        [HttpGet("{username}", Name = "GetStudent")]
+        public ActionResult<User> GetbyUsername(string username)
+        {
+            var user = _userService.GetByUsername(username);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return user;
+        }
+
         [HttpPost]
         public ActionResult<User> Create(User user)
         {
