@@ -7,7 +7,7 @@ function verifyUsernameAndPassword(){
             if (this.status==200){
                 userData = JSON.parse(this.response);
                 if (userData.Password==document.getElementById("password").value){
-                    sessionStorage.setItem("username",username);
+                    sessionStorage.setItem("Id",userData.EntityId);
                     sessionStorage.setItem("typeOfUser",userData.TypeOfUser);
                     windows.location.replace("/index.html");
                 }
