@@ -14,6 +14,7 @@ namespace eSims.Models
         public string Password;
         [BsonElement("TypeOfUser")]
         public string TypeOfUser;
-
+        [BsonElement("EntityId")]
+        public string EntityId;
     }
 }
