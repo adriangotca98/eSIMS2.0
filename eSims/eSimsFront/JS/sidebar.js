@@ -28,9 +28,12 @@ xhttp.onreadystatechange=function() {
             li.append(a);
             ul.append(li);
         }
+        console.log(ul.innerHTML);
+        nav.append(ul);
+        console.log(nav.innerHTML);
+        div.insertBefore(nav, document.getElementById("content"));
+        console.log(div.innerHTML);
     }
 }
 xhttp.open("GET","https://localhost:44398/api/student/1",true);
 xhttp.send();
-nav.append(ul);
-div.insertBefore(nav, document.getElementById("content"));
