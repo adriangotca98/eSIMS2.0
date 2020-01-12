@@ -38,9 +38,9 @@ namespace eSims.Controllers
 			return CreatedAtRoute("GetProfessor", new { id = professor.Id.ToString() }, professor);
 		}
 		[HttpPut]
-		public IActionResult Update(string id, Professor professorIn)
+		public IActionResult Update(Professor professorIn)
 		{
-			var professor = _professorService.Get(id);
+			var professor = _professorService.Get(professorIn.Id);
 			if (professor == null)
 			{
 				return NotFound();
