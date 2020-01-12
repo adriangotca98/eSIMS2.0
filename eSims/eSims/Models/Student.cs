@@ -9,7 +9,7 @@ namespace eSims.Models
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
 		public string Id;
-		[BsonElement("RegistrationNumber")]
+		[BsonElement("Registration Number")]
 		public string RegistrationNumber;
 		[BsonElement("First Name")]
 		public string FirstName;
