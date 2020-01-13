@@ -7,8 +7,8 @@ namespace eSims.Services
 	{
 		Subject Create(Subject subject);
 		List<Subject> Get();
-		Subject Get(string id);
-		void Remove(string id);
+		Subject Get(string name);
+		void Remove(string name);
 		void Remove(Subject subjectIn);
 		bool Update(Subject subjectIn);
 	}

@@ -21,7 +21,5 @@ namespace eSims.Models
 		public string Group;
 		[BsonElement("Subjects")]
 		public List<string> Subjects;
-		[BsonElement("GradeIDs")]
-		public List<string> GradeIDs;
 	}
 }
