@@ -64,7 +64,7 @@ namespace eSims.Services
                     return false;
                 }
             
-            if (_subjects.Find(subject => subject.Id == grade.SubjectID).FirstOrDefault() == null)
+            if (_subjects.Find(subject => subject.Name == grade.SubjectName).FirstOrDefault() == null)
             {
                 return false;
             }

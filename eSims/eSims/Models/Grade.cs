@@ -15,8 +15,8 @@ namespace eSims.Models
 		public string StudentID { get; set; }
 		[BsonElement("ProfessorID")]
 		public string ProfessorID { get; set; }
-		[BsonElement("SubjectID")]
-		public string SubjectID { get; set; }
+		[BsonElement("SubjectName")]
+		public string SubjectName { get; set; }
 		[BsonElement("Category")]
 		public string Category { get; set; }
     }
