@@ -20,11 +20,11 @@ namespace eSims.Services
         }
 		public List<Subject> Get() =>
 			_subjects.Find(subject => true).ToList();
-        public Subject Get(string id) =>
-            FindSubjectById(id);
+        public Subject Get(string name) =>
+            FindSubjectByName(name);
 		public Subject Create(Subject subject)
 		{
-            if (FindSubjectById(subject.Id) != null || VerifyProfessors(subject) == false)
+            if (FindSubjectByName(subject.Name) != null || VerifyProfessors(subject) == false)
             {
                 return null;
             }
@@ -38,18 +38,18 @@ namespace eSims.Services
             {
                 return false;
             }
-            _subjects.ReplaceOne(subjects => subjects.Id == subjectIn.Id, subjectIn);
+            _subjects.ReplaceOne(subjects => subjects.Name == subjectIn.Name, subjectIn);
             return true;
         }
 			
 
 		public void Remove(Subject subjectIn) =>
-			_subjects.DeleteOne(subjects => subjects.Id == subjectIn.Id);
-		public void Remove(string id) =>
-			_subjects.DeleteOne(subjects => subjects.Id == id);
+			_subjects.DeleteOne(subjects => subjects.Name == subjectIn.Name);
+		public void Remove(string name) =>
+			_subjects.DeleteOne(subjects => subjects.Name == name);
 
-        private Subject FindSubjectById(string id) =>
-            _subjects.Find(subject => subject.Id == id).FirstOrDefault();
+        private Subject FindSubjectByName(string name) =>
+            _subjects.Find(subject => subject.Name == name).FirstOrDefault();
 
         private bool VerifyProfessors(Subject subject)
         {

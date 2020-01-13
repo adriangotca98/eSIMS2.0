@@ -18,10 +18,10 @@ namespace eSims.Controllers
 		public ActionResult<List<Subject>> Get() =>
 			_subjectsService.Get();
 
-		[HttpGet("{id:length(24)}", Name = "GetSubject")]
-		public ActionResult<Subject> Get(string id)
+		[HttpGet("{name}", Name = "GetSubject")]
+		public ActionResult<Subject> Get(string name)
 		{
-			var subject = _subjectsService.Get(id);
+			var subject = _subjectsService.Get(name);
 			if (subject == null)
 			{
 				return NotFound();
@@ -44,7 +44,7 @@ namespace eSims.Controllers
 		[HttpPut]
 		public IActionResult Update(Subject subjectIn)
 		{
-			var subject = _subjectsService.Get(subjectIn.Id);
+			var subject = _subjectsService.Get(subjectIn.Name);
 			if (subject == null)
 			{
 				return NotFound();
@@ -53,15 +53,15 @@ namespace eSims.Controllers
 			    return NoContent();
             return BadRequest();
 		}
-		[HttpDelete("{id:length(24)}")]
-		public IActionResult Delete(string id)
+		[HttpDelete("{Name}")]
+		public IActionResult Delete(string name)
 		{
-			var subject = _subjectsService.Get(id);
+			var subject = _subjectsService.Get(name);
 			if (subject == null)
 			{
 				return NotFound();
 			}
-			_subjectsService.Remove(subject.Id);
+			_subjectsService.Remove(subject.Name);
 			return NoContent();
 		}
 	}
