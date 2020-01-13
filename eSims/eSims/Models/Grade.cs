@@ -19,8 +19,5 @@ namespace eSims.Models
 		public string SubjectID { get; set; }
 		[BsonElement("Category")]
 		public string Category { get; set; }
-
-        [BsonElement("Week")]
-        public string Week { get; set; }
     }
 }

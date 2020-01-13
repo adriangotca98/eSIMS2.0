@@ -49,7 +49,7 @@ namespace eSims.Services
 
 		private bool VerifyProfAndStudentIDsExistence(Attendance prezentIn)
 		{
-			if (_professors.Find(prof => prof.Id == prezentIn.Prof).FirstOrDefault() == null)
+			if (_professors.Find(prof => prof.Id == prezentIn.ProfId).FirstOrDefault() == null)
 			{
 				return false;
 			}
