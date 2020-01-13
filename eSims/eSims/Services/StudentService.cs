@@ -25,7 +25,7 @@ namespace eSims.Services
 			FindStudentByRegistrationNumber(registrationNumber);
 		public Student Create(Student student)
 		{
-			if (FindStudentByRegistrationNumber(student.RegistrationNumber) != null || VerifySubjectsAndGrades(student) == false)
+			if (FindStudentByRegistrationNumber(student.RegistrationNumber) != null || VerifySubjects(student) == false)
 			{
 				return null;
 			}
@@ -34,7 +34,7 @@ namespace eSims.Services
 		}
 		public bool Update(Student student)
 		{
-			if (VerifySubjectsAndGrades(student) == false)
+			if (VerifySubjects(student) == false)
 			{
 				return false;
 			}
@@ -47,18 +47,11 @@ namespace eSims.Services
 			_students.DeleteOne(student => student.RegistrationNumber == registrationNumber);
 		private Student FindStudentByRegistrationNumber(string registrationNumber)=>
 			_students.Find(student => student.RegistrationNumber == registrationNumber).FirstOrDefault();
-		private bool VerifySubjectsAndGrades(Student student)
+		private bool VerifySubjects(Student student)
 		{
 			foreach (string _subject in student.Subjects.ToList())
 			{
 				if (_subjects.Find(subject => subject.Name == _subject).FirstOrDefault() == null)
-				{
-					return false;
-				}
-			}
-			foreach (string gradeID in student.GradeIDs.ToList())
-			{
-				if (_grades.Find(grade => grade.Id == gradeID).FirstOrDefault() == null)
 				{
 					return false;
 				}

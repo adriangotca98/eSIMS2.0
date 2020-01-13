@@ -21,5 +21,8 @@ namespace eSims.Models
 		public int NrStud { get; set; }
 		[BsonElement("StudentIDs")]
 		public List<string> StudentIds { get; set; }
-	}
+
+        [BsonElement("Week")]
+        public string Week { get; set; }
+    }
 }
